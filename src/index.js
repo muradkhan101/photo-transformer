@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import PhotoTransformer from './PhotoTransformerApp/PhotoTransformer.display';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<PhotoTransformer />, document.getElementById('root'));
 registerServiceWorker();
