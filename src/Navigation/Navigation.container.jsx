@@ -25,7 +25,7 @@ export default class NavigationContainer extends React.Component {
 
   render() {
     return (
-      <NavigationBar>
+      <NavigationBar id="nav-container">
         <Navigation title={TEMP.title} navList={TEMP.navList}></Navigation>
         <MobileNavigation></MobileNavigation>
       </NavigationBar>

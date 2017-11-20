@@ -22,7 +22,7 @@ export default class Navigation extends React.Component {
   }
   render() {
     return (
-      <Nav>
+      <Nav id="navigation">
         <Title>{this.props.title}</Title>
         <NavigationList navList={this.props.navList}></NavigationList>
       </Nav>

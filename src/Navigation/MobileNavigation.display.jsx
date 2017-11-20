@@ -5,10 +5,10 @@ export default class MobileNavigation extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
-      <div></div>
+      <div id="mobile-navigation"></div>
     );
   }
 }

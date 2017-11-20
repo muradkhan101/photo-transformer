@@ -16,7 +16,7 @@ const Link = styled.a`
 
 export const NavigationItem = (props) => {
   return (
-    <NavItem>
+    <NavItem className="nav-item">
       <Link
         href={props.link}>
         {props.item}

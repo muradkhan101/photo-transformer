@@ -9,9 +9,9 @@ export const FONT_SIZE = {
   small: '0.8em',
   base: '1em',
   medium: '1.25em',
-  large: '1.5em',
-  x_large: '2em',
-  massive: '2.5em'
+  large: '1.75em',
+  x_large: '2.25em',
+  massive: '3em'
 }
 
 // Spacing

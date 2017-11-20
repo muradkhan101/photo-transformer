@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 
 import NavigationContainer from '../Navigation/Navigation.container';
-
+import CurrentPhoto from '../PhotoDisplay/CurrentPhoto.display';
 const MainContainer = styled.div`
   width: 100%;
   min-height: 100vh;
@@ -25,6 +25,7 @@ export default class PhotoTransformerApp extends React.Component {
     return (
       <MainContainer>
         <NavigationContainer></NavigationContainer>
+        <CurrentPhoto/>
       </MainContainer>
     );
   }
