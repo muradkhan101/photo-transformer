@@ -13,12 +13,12 @@ const photoData = (mediaQuery, maxHeight, maxWidth) => {
   */
   return class extends React.Component {
     static childContextTypes = {
-      currentPhoto : PropTypes.object
+      photoData : PropTypes.object
     }
     // This method is gonna cause issues with updating children later on
     // Might update too much and be slow w/ large arrays, or won't do it often enough
     state = {
-      currentPhoto : {
+      photoData : {
         setPhoto: (imgData) => this.setPhoto(imgData),
         getPhotoData: () => this.getPhotoData(),
         loadPhoto: (url, canvas) => this.loadPhoto(url, canvas),
@@ -81,7 +81,7 @@ const photoData = (mediaQuery, maxHeight, maxWidth) => {
 
     getChildContext() {
       return {
-        currentPhoto: this.state.currentPhoto
+        photoData: this.state.photoData
       }
     }
     render () {

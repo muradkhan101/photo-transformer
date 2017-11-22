@@ -6,9 +6,10 @@ import CurrentPhoto from '../PhotoDisplay/CurrentPhoto.container';
 import photoData from '../PhotoDisplay/PhotoData.container';
 import Uploader from './Uploader.display';
 /* To-dos
-   Load image data into canvas element when present
+   Load image data into canvas element when present, update size on resize
    Create image uploader component and store
    Implement React Router for multiple apps
+   CSS for mobile nav
 */
 
 const MainContainer = styled.div`
@@ -26,13 +27,8 @@ const MainContainer = styled.div`
     grid-template-columns: 30% 70%;
   }
   @media (max-width: 593px) {
-    grid-template-columns: 100%;
-    grid-template-rows: 45px auto auto 60px;
-    grid-template-areas:
-    "navigation"
-    "content"
-    "content"
-    "footer";
+    display: flex;
+    flex-direction: column;
   }
 `
 

@@ -12,14 +12,14 @@ const Current = styled.div`
 
 export default class CurrentPhoto extends React.Component {
   static contextTypes = {
-    currentPhoto : PropTypes.object
+    photoData : PropTypes.object
   }
   render() {
-    let { currentPhoto } = this.context;
+    let { photoData } = this.context;
     return (
       <Current>
         <h3> Current Photo </h3>
-        <Canvas imgData={currentPhoto.getPhotoData()} name="current"/>
+        <Canvas imgData={photoData.getPhotoData()} name="current"/>
       </Current>
     )
   }

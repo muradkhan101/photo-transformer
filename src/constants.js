@@ -1,10 +1,9 @@
 // Colors
-
 export const SKY_BLUE = '#56a4db';
 export const EGG_WHITE = '#efefef';
-
+export const CHARCOAL = '#313131';
+export const ORANGE = '#ffa035';
 // Typography
-
 export const FONT_SIZE = {
   small: '0.8em',
   base: '1em',
@@ -15,7 +14,6 @@ export const FONT_SIZE = {
 }
 
 // Spacing
-
 export const M_BOT = 'margin-bottom: 10px';
 export const M_TOP = 'margin-top: 10px';
 export const M_LEFT = 'margin-left: 10px';

@@ -8,6 +8,9 @@ const Nav = styled.nav`
   color: ${EGG_WHITE};
   margin-right: 15%;
   margin-top: 50px;
+  @media (max-width: 594px) {
+    display: none;
+  }
 `
 
 const Title = styled.h3`
