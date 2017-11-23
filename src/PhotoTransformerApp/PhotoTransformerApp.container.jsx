@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 
 import NavigationContainer from '../Navigation/Navigation.container';
+import ImageContainer from '../PhotoDisplay/ImageContainer.container';
 import CurrentPhoto from '../PhotoDisplay/CurrentPhoto.container';
 import photoData from '../PhotoDisplay/PhotoData.container';
 import Uploader from './Uploader.display';
@@ -33,9 +34,6 @@ const MainContainer = styled.div`
 `
 
 export default class PhotoTransformerApp extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     let CurrentPhotoData = photoData(
@@ -43,14 +41,24 @@ export default class PhotoTransformerApp extends React.Component {
       400,
       500
     )
+    // return (
+    //   <MainContainer>
+    //     <NavigationContainer/>
+    //     <CurrentPhotoData>
+    //       <CurrentPhoto/>
+    //       <Uploader/>
+    //     </CurrentPhotoData>
+    //   </MainContainer>
+    // );
     return (
       <MainContainer>
-        <NavigationContainer/>
-        <CurrentPhotoData>
-          <CurrentPhoto/>
-          <Uploader/>
-        </CurrentPhotoData>
+        <NavigationContainer />
+        <ImageContainer>
+          <CurrentPhotoData>
+            <CurrentPhoto />
+          </CurrentPhotoData>
+        </ImageContainer>
       </MainContainer>
-    );
+    )
   }
 }

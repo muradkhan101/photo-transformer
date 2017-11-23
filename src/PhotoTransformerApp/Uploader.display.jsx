@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { ORANGE, CHARCOAL } from '../constants'
+import { ORANGE, CHARCOAL, FONT_SIZE } from '../constants'
 // Make custom CSS for this shite
 const Wrapper = styled.div`
   position: relative;
@@ -31,7 +31,8 @@ const Upload = styled.span`
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 10;
+  left: 0;
+  z-index: 5;
   height: 2.5rem;
   padding: 0.5rem 1rem;
   color: ${CHARCOAL};
@@ -39,6 +40,7 @@ const Upload = styled.span`
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
+  font-size: ${FONT_SIZE.medium};
   &::after, &::before {
     -webkit-box-sizing: inherit;
     box-sizing: inherit;
@@ -65,11 +67,19 @@ const Upload = styled.span`
 `
 
 export default class Uploader extends React.Component {
+  static contextTypes = {
+    setURL: PropTypes.func,
+  }
+  onUpload(e) {
+    let file = e.target.files[0]
+    let url = window.URL.createObjectURL(file)
+    this.context.setURL(url)
+  }
   render() {
     return (
       <div style={{position: "relative"}}>
         <FileLabel htmlFor="image">
-          <FileInput type="file" id="image" accept=".png, .jpg, .jpeg, image/*" />
+          <FileInput onChange={(e) => this.onUpload(e)} type="file" id="image" accept=".png, .jpg, .jpeg, image/*" />
           <Upload/>
         </FileLabel>
       </div>

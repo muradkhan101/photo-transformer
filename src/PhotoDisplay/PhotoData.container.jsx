@@ -13,7 +13,9 @@ const photoData = (mediaQuery, maxHeight, maxWidth) => {
   */
   return class extends React.Component {
     static childContextTypes = {
-      photoData : PropTypes.object
+      photoData : PropTypes.object,
+      imageURL: PropTypes.string,
+      subscribe: PropTypes.func,
     }
     // This method is gonna cause issues with updating children later on
     // Might update too much and be slow w/ large arrays, or won't do it often enough
@@ -43,7 +45,7 @@ const photoData = (mediaQuery, maxHeight, maxWidth) => {
       img.onload = function() {
         let h, w;
         // Need to generalize this part to work for any sized canvas
-        if ( mediaQuery ) {
+        if ( mediaQuery() ) {
           if ( this.height > this.width) {
             h = Math.min( maxHeight, this.height );
             w = Math.round( this.width / this.height * h );
@@ -53,10 +55,10 @@ const photoData = (mediaQuery, maxHeight, maxWidth) => {
           }
         } else {
           if (this.height > this.width ) {
-            h = Math.min( window.innerHeight / 4 - (45 + 60) - 8, this.height );
+            h = Math.min( ( window.innerHeight - (45 + 60) - 8) / 3 , this.height );
             w = Math.round( this.width / this.height * h );
           } else {
-            w = Math.min( window.innerWidth * 0.25 - 16, this.width );
+            w = Math.min( ( window.innerWidth - 16) * 0.25, this.width );
             h = Math.round( this.height / this.width * w );
           }
         }
@@ -66,6 +68,8 @@ const photoData = (mediaQuery, maxHeight, maxWidth) => {
         ctx.drawImage(this, 0, 0,w,h);
         loaded(w, h);
       }
+
+      img.src = url
 
       function loaded(w, h) {
         let imgData = ctx.getImageData(0,0,w,h);
