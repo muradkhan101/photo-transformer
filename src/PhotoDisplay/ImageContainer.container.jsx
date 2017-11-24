@@ -16,9 +16,14 @@ export default class ImageContainer extends React.Component {
   getChildContext() {
     return {
       imageURL: this.state.imageURL,
-      setURL: (url) => this.setState({imageURL : url}),
+      setURL: (url) => this.updateURL(url),
       subscribe: (f) => this.subscribe(f),
     }
+  }
+
+  updateURL(url) {
+    this.state.subscribers.map( fn => fn(url) )
+    this.setState({imageURL: url})
   }
 
   subscribe(f) {

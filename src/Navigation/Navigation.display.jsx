@@ -7,14 +7,19 @@ import { EGG_WHITE, FONT_SIZE, M_BOT } from '../constants';
 const Nav = styled.nav`
   color: ${EGG_WHITE};
   margin-right: 15%;
-  margin-top: 50px;
+  top: 50px;
+  position: sticky;
+  overflow: scroll;
+  @media (max-width: 750px) {
+    margin-right: 5%;
+  }
   @media (max-width: 594px) {
     display: none;
   }
 `
 
-const Title = styled.h3`
-  font-size: ${FONT_SIZE.large};
+const Title = styled.h2`
+  font-size: ${FONT_SIZE.x_large};
   text-align: right;
   ${M_BOT};
 `

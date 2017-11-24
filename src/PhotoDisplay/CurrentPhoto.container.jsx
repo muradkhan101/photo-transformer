@@ -12,8 +12,16 @@ const Current = styled.div`
 
 export default class CurrentPhoto extends React.Component {
   static contextTypes = {
-    photoData : PropTypes.object
+    photoData : PropTypes.object,
+    subscribe : PropTypes.func,
   }
+  componentDidMount() {
+    let { subscribe, photoData } = this.context;
+    this.unsubscribe = subscribe(
+      (url) => photoData.loadPhoto(url, document.getElementById('currentCanvas'))
+    )
+  }
+  componentWillUnmount() { this.unsubscribe() }
   render() {
     let { photoData } = this.context;
     return (

@@ -38,8 +38,7 @@ export default class PhotoTransformerApp extends React.Component {
   render() {
     let CurrentPhotoData = photoData(
       () => window.innerWidth < 594,
-      400,
-      500
+      true
     )
     // return (
     //   <MainContainer>
@@ -57,6 +56,7 @@ export default class PhotoTransformerApp extends React.Component {
           <CurrentPhotoData>
             <CurrentPhoto />
           </CurrentPhotoData>
+          <Uploader/>
         </ImageContainer>
       </MainContainer>
     )

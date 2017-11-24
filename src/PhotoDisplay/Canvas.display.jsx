@@ -4,7 +4,7 @@ export default class Canvas extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     let ctx = this.refs[this.props.name].getContext('2d');
-    if (nextProps.imgData) ctx.putImageData(nextProps.imgData.imgData, 0, 0)
+    if (nextProps.imgData.imgData) ctx.putImageData(nextProps.imgData.imgData, 0, 0)
   }
 
   render() {

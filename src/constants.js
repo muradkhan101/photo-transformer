@@ -10,11 +10,16 @@ export const FONT_SIZE = {
   medium: '1.25em',
   large: '1.75em',
   x_large: '2.25em',
-  massive: '3em'
+  massive: '3em',
 }
 
+export const HEADING_FONTS = 'Cabin, "Franklin Gothic", sans-serif';
+export const BODY_FONTS = 'Quicksand, Helvetica, "Century Gothic", sans-serif';
+
 // Spacing
-export const M_BOT = 'margin-bottom: 10px';
-export const M_TOP = 'margin-top: 10px';
-export const M_LEFT = 'margin-left: 10px';
-export const M_RIGHT = 'margin-right: 10px';
+export const M_BOT = 'margin-bottom: 16px';
+export const M_TOP = 'margin-top: 16px';
+export const M_LEFT = 'margin-left: 16px';
+export const M_RIGHT = 'margin-right: 16px';
+
+export const ALL_PADDING = 'padding: 8px 12px';
