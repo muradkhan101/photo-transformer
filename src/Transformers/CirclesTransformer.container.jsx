@@ -15,7 +15,6 @@ class CirclesTransformer extends React.Component {
     imageURL : string,
   }
   state = {
-    photo: undefined,
     continue: false,
     name: 'circles',
     circles: [],

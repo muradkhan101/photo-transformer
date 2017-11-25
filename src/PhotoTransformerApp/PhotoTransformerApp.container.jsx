@@ -6,7 +6,8 @@ import ImageContainer from '../PhotoDisplay/ImageContainer.container';
 import CurrentPhoto from '../PhotoDisplay/CurrentPhoto.container';
 import photoData from '../PhotoDisplay/PhotoData.container';
 import Uploader from './Uploader.display';
-import CirclesTransformer from '../Transformers/CirclesTransformer.container';
+import SelectionSortTransformer from '../Transformers/SelectionSortTransformer.container';
+
 import { LIGHT_BLUE } from '../constants';
 /* To-dos
    Load image data into canvas element when present, update size on resize
@@ -60,7 +61,7 @@ export default class PhotoTransformerApp extends React.Component {
             <CurrentPhoto />
           </CurrentPhotoData>
           <Uploader/>
-          <CirclesTransformer/>
+          <SelectionSortTransformer/>
         </ImageContainer>
       </MainContainer>
     )
