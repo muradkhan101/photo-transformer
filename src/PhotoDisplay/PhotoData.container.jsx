@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import { object } from 'prop-types'
 
 // Need to make this more general since other canvas will need photo data too?
 // Could get state from canvas itself? No, imgData needs to be held in component for sorting
@@ -13,7 +13,7 @@ const photoData = (mediaQuery, current) => {
   */
   return class extends React.Component {
     static childContextTypes = {
-      photoData : PropTypes.object,
+      photoData : object,
       // imageURL: PropTypes.string,
       // subscribe: PropTypes.func,
     }
@@ -25,16 +25,12 @@ const photoData = (mediaQuery, current) => {
         getPhotoData: () => this.getPhotoData(),
         loadPhoto: (url, canvas) => this.loadPhoto(url, canvas),
       },
-      photo : {
-        imgData : undefined,
-        width : undefined,
-        height : undefined,
-      },
+      imgData: undefined,
     }
 
     setPhoto(imgData) { this.setState({photo : imgData}) }
 
-    getPhotoData() { return this.state.photo }
+    getPhotoData() { return this.state.imgData; }
 
     loadPhoto(url, canvas) {
       let this_ = this;

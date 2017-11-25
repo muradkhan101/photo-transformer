@@ -1,19 +1,22 @@
 import React from 'react';
 import Canvas from './Canvas.display.jsx';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import { object, func } from 'prop-types';
+import { EGG_WHITE } from '../constants'
 
 const Current = styled.div`
   grid-area: photo;
   padding: 8px;
   margin: 0 auto;
   text-align: center;
+  background: ${EGG_WHITE};
+  width: 100%;
 `
 
 export default class CurrentPhoto extends React.Component {
   static contextTypes = {
-    photoData : PropTypes.object,
-    subscribe : PropTypes.func,
+    photoData : object,
+    subscribe : func,
   }
   componentDidMount() {
     let { subscribe, photoData } = this.context;
@@ -27,7 +30,14 @@ export default class CurrentPhoto extends React.Component {
     return (
       <Current>
         <h3> Current Photo </h3>
-        <Canvas imgData={photoData.getPhotoData()} name="current"/>
+        <Canvas
+          renderCanvas={(canvas) => {
+            let ctx = canvas.getContext('2d');
+            let imgData = photoData.getPhotoData();
+            if (imgData) ctx.putImageData(imgData, 0, 0);
+          }}
+          name="current"
+        />
       </Current>
     )
   }

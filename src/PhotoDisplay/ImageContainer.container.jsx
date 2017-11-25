@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, func } from 'prop-types';
 
 export default class ImageContainer extends React.Component {
   static childContextTypes = {
-    imageURL: PropTypes.string,
-    setURL: PropTypes.func,
-    subscribe: PropTypes.func,
+    imageURL: string,
+    setURL: func,
+    subscribe: func,
   }
 
   state = {

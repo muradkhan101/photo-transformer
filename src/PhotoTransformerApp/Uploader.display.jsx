@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { func } from 'prop-types';
 import styled from 'styled-components';
 import { ORANGE, CHARCOAL, FONT_SIZE } from '../constants'
 // Make custom CSS for this shite
@@ -68,7 +68,7 @@ const Upload = styled.span`
 
 export default class Uploader extends React.Component {
   static contextTypes = {
-    setURL: PropTypes.func,
+    setURL: func,
   }
   onUpload(e) {
     let file = e.target.files[0]

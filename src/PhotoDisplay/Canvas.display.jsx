@@ -2,9 +2,14 @@ import React from 'react';
 
 export default class Canvas extends React.Component {
 
+  /*
+   * Needs a renderCanvas prop that tells it how to render
+   * For CircleTransformer, putImageData won't work since it doesn't draw the image
+  */
+
   componentWillReceiveProps(nextProps) {
-    let ctx = this.refs[this.props.name].getContext('2d');
-    if (nextProps.imgData.imgData) ctx.putImageData(nextProps.imgData.imgData, 0, 0)
+    if (nextProps.renderCanvas)
+      nextProps.renderCanvas(this.refs[this.props.name])
   }
 
   render() {

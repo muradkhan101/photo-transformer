@@ -1,7 +1,7 @@
 import React from 'react';
 import Canvas from './Canvas.display.jsx';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import { object } from 'prop-types';
 
 const Transformed = styled.div`
   grid-area: photo;
@@ -12,7 +12,7 @@ const Transformed = styled.div`
 
 export default class CurrentPhoto extends React.Component {
   static contextTypes = {
-    photoData : PropTypes.object
+    photoData : object
   }
   render() {
     let { photoData } = this.context;

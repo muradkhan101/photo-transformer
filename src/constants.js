@@ -3,6 +3,7 @@ export const SKY_BLUE = '#56a4db';
 export const EGG_WHITE = '#efefef';
 export const CHARCOAL = '#313131';
 export const ORANGE = '#ffa035';
+export const LIGHT_BLUE = '#8ad0f3';
 // Typography
 export const FONT_SIZE = {
   small: '0.8em',

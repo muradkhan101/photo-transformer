@@ -6,6 +6,8 @@ import ImageContainer from '../PhotoDisplay/ImageContainer.container';
 import CurrentPhoto from '../PhotoDisplay/CurrentPhoto.container';
 import photoData from '../PhotoDisplay/PhotoData.container';
 import Uploader from './Uploader.display';
+import CirclesTransformer from '../Transformers/CirclesTransformer.container';
+import { LIGHT_BLUE } from '../constants';
 /* To-dos
    Load image data into canvas element when present, update size on resize
    Create image uploader component and store
@@ -24,6 +26,7 @@ const MainContainer = styled.div`
   "navigation content"
   "photo content"
   "photo footer";
+  background: ${LIGHT_BLUE};
   @media (max-width: 750px) {
     grid-template-columns: 30% 70%;
   }
@@ -57,6 +60,7 @@ export default class PhotoTransformerApp extends React.Component {
             <CurrentPhoto />
           </CurrentPhotoData>
           <Uploader/>
+          <CirclesTransformer/>
         </ImageContainer>
       </MainContainer>
     )
