@@ -1,6 +1,6 @@
 import React from 'react';
 import { object, string } from 'prop-types';
-import * as helpers from './circleHelpers';
+import { newCircle } from './circleHelpers';
 import transformWrapper from './TransformWrapper.display';
 /*
  * Needs to pull info from somewhere originally (ImageContainer - imageURL context)
@@ -21,23 +21,68 @@ class CirclesTransformer extends React.Component {
     circles: [],
   }
 
-  reset() {
+  draw(canvas) {
+    if (this.state.continue) {
+      let count = 0, max = 10, attempts = 0;
+      let circles = [];
+      while (count < max) {
+        let newC = newCircle(canvas, this.context.photoData.getPhotoData(), this.state.circles.concat(circles));
+        if (newC !== null) {
+          circles.push(newC);
+          ++count;
+        }
+        ++attempts;
+        if (attempts > 250) {
+          this.setState({ continue : false });
+          return;
+        }
+      }
+      this.setState({circles: this.state.circles.concat(circles)},
+       () => {
+         window.requestAnimationFrame(() => this.draw(canvas));
+       })
+    }
+  }
 
+  reset() {
+    this.setState({
+      circles : [],
+      continue : false,
+      photo: undefined,
+    })
   }
 
   render() {
-    let { photoData } = this.context;
     let children =  React.Children.map(
       this.props.children,
       (child) => {
         if (child.type.name === 'Canvas') {
           return React.cloneElement(child, {
             name: this.state.name,
-            renderCanvas: () => 1,
+            renderCanvas: (canvas) => {
+              let ctx = canvas.getContext('2d');
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              for (let c of this.state.circles) {
+                c.drawCircle(ctx);
+              }
+            },
           });
         } else if (child.type.name === 'LoadButton') {
           return React.cloneElement(child, {
             name: this.state.name,
+            onClick: () => {
+              this.reset();
+              let url = this.context.imageURL;
+              let canvas = document.getElementById(`${this.state.name}Canvas`);
+              this.context.photoData.loadPhoto(url, canvas)
+                .then(imgData => {
+                  this.setState({
+                    continue: true,
+                    photo: imgData
+                  },
+                  () => this.draw(canvas));
+                })
+            }
           })
         }
         else return child;

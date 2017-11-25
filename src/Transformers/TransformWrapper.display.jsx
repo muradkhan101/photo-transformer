@@ -23,7 +23,7 @@ const transformWrapper = (Transformer) => {
     () => window.innerWidth < 594,
     false
   )
-  return class extends React.Component {
+  return class TransformWrapper extends React.Component {
     render() {
       return (
         <Container>

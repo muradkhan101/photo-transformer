@@ -11,7 +11,7 @@ const photoData = (mediaQuery, current) => {
    *    ex : () => window.innerWidth < 594
    * maxHeight, maxWidth are largest size canvas element should be set to
   */
-  return class extends React.Component {
+  return class PhotoDataWrapper extends React.Component {
     static childContextTypes = {
       photoData : object,
       // imageURL: PropTypes.string,
@@ -28,7 +28,7 @@ const photoData = (mediaQuery, current) => {
       imgData: undefined,
     }
 
-    setPhoto(imgData) { this.setState({photo : imgData}) }
+    setPhoto(imgData) { this.setState({imgData : imgData}) }
 
     getPhotoData() { return this.state.imgData; }
 
@@ -38,49 +38,46 @@ const photoData = (mediaQuery, current) => {
 
       let img = new Image();
       img.crossOrigin = 'Anonymous';
-      img.onload = function() {
-        let h, w;
-        // Need to generalize this part to work for any sized canvas
-        if ( mediaQuery() ) {
-          if ( this.height > this.width) {
-            h = Math.min( 400, this.height );
-            w = Math.round( this.width / this.height * h );
+      return new Promise((resolve, reject) => {
+        img.onload = function() {
+          let h, w;
+          // Need to generalize this part to work for any sized canvas
+          if ( mediaQuery() ) {
+            if ( this.height > this.width) {
+              h = Math.min( 400, this.height );
+              w = Math.round( this.width / this.height * h );
+            } else {
+              w = Math.min( window.innerWidth - 16, this.width );
+              h = Math.round( this.height / this.width * w );
+            }
           } else {
-            w = Math.min( window.innerWidth - 16, this.width );
-            h = Math.round( this.height / this.width * w );
+            if (this.height > this.width ) {
+              h = current
+                  ? Math.min( ( window.innerHeight - (45 + 60) - 8) / 3 , this.height )
+                  : Math.min( 500, this.height );
+              w = Math.round( this.width / this.height * h );
+            } else {
+              w = current
+                  ? Math.min( ( window.innerWidth - 16) * 0.25, this.width )
+                  : Math.min( window.innerWidth * 0.6, this.width );
+              h = Math.round( this.height / this.width * w );
+            }
           }
-        } else {
-          if (this.height > this.width ) {
-            h = current
-                ? Math.min( ( window.innerHeight - (45 + 60) - 8) / 3 , this.height )
-                : Math.min( 500, this.height );
-            w = Math.round( this.width / this.height * h );
-          } else {
-            w = current
-                ? Math.min( ( window.innerWidth - 16) * 0.25, this.width )
-                : Math.min( window.innerWidth * 0.6, this.width );
-            h = Math.round( this.height / this.width * w );
-          }
+
+          canvas.height = h;
+          canvas.width = w;
+          ctx.drawImage(this, 0, 0, w, h);
+          loaded(w, h);
         }
 
-        canvas.height = h;
-        canvas.width = w;
-        ctx.drawImage(this, 0, 0, w, h);
-        loaded(w, h);
-      }
+        img.src = url
 
-      img.src = url
-
-      function loaded(w, h) {
-        let imgData = ctx.getImageData(0,0,w,h);
-        this_.setState({
-          photo : {
-            imgData : imgData,
-            width : w,
-            height : h,
-          }
-        })
-      }
+        function loaded(w, h) {
+          let imgData = ctx.getImageData(0,0,w,h);
+          this_.state.imgData = imgData;
+          resolve(imgData);
+        }
+      })
     }
 
     getChildContext() {

@@ -1,17 +1,16 @@
 export class Circle {
-   constructor(x_, y_, r, color, ctx) {
+   constructor(x_, y_, r, color) {
      this.x = x_;
      this.y = y_;
      this.r = r;
      this.color = color;
-     this.ctx = ctx;
    }
-   drawCircle() {
-     this.ctx.beginPath();
-     this.ctx.strokeStyle = this.color;
-     this.ctx.fillStyle = this.color;
-     this.ctx.ellipse(this.x, this.y, this.r, this.r, 0, 0, Math.PI * 2);
-     this.ctx.stroke();
+   drawCircle(ctx) {
+     ctx.beginPath();
+     ctx.strokeStyle = this.color;
+     ctx.fillStyle = this.color;
+     ctx.ellipse(this.x, this.y, this.r, this.r, 0, 0, Math.PI * 2);
+     ctx.stroke();
    }
    static outsideCircle(c, _x, _y, _r) {
      return (dist(c.x, c.y, _x, _y) > c.r + _r + 1);
@@ -43,7 +42,7 @@ export function newCircle(canvas, imgData, circles) {
   var r = 50/(Math.sqrt(
     calcVar(
       imgData.data,
-      findIndices(imgData.data, (x+y*canvas.width)*4,canvas.height, 0,10))));
+      findIndices(imgData.data, (x+y*canvas.width)*4,canvas.width, 0, 10))));
   var valid = true;
   for (let c of circles) {
     if (Circle.outsideCircle(c, x, y, r) === false) {
@@ -52,7 +51,7 @@ export function newCircle(canvas, imgData, circles) {
     }
   }
   if (valid === true) {
-    return new Circle(x, y, r, getPixelColor(imgData.data, x, y, canvas.width), canvas.getContext('2d'));
+    return new Circle(x, y, r, getPixelColor(imgData.data, x, y, imgData.width));
   } else return null;
 }
 

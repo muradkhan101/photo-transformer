@@ -71,18 +71,20 @@ export default class Uploader extends React.Component {
     setURL: func,
   }
   onUpload(e) {
-    let file = e.target.files[0]
-    let url = window.URL.createObjectURL(file)
-    this.context.setURL(url)
+    if (e.target.files.length) {
+      let file = e.target.files[0];
+      let url = window.URL.createObjectURL(file);
+      this.context.setURL(url);
+    }
   }
   render() {
     return (
-      <div style={{position: "relative"}}>
+      <Wrapper>
         <FileLabel htmlFor="image">
           <FileInput onChange={(e) => this.onUpload(e)} type="file" id="image" accept=".png, .jpg, .jpeg, image/*" />
           <Upload/>
         </FileLabel>
-      </div>
+      </Wrapper>
     )
   }
 }

@@ -3,6 +3,8 @@ import { object, string } from 'prop-types';
 import styled from 'styled-components';
 import { ORANGE, SKY_BLUE, EGG_WHITE, HEADING_FONTS } from '../constants';
 
+// Need to pass a way to start drawing on button click (call draw)
+
 const ButtonContainer = styled.div`
   display: inline-block;
   overflow: hidden;
@@ -20,9 +22,9 @@ const ButtonContainer = styled.div`
     width: 100%;
     height: 100%;
 }
-&:hover {
-  &::before {animation: 0.5s ease-in-out 0s button;}
-}
+  &:hover {
+    &::before {animation: 0.5s ease-in-out 0s button;}
+  }
 `
 
 const Button = styled.button`
@@ -55,17 +57,12 @@ export default class LoadButton extends React.Component {
     imageURL: string,
     photoData: object,
   }
-  onClick() {
-    let url = this.context.imageURL;
-    let canvas = document.getElementById(`${this.props.name}Canvas`);
-    this.context.photoData.loadPhoto(url, canvas);
-  }
 
   render() {
     return (
       <div>
         <ButtonContainer>
-          <Button onClick={this.onClick.bind(this)}>Load that S**t Up</Button>
+          <Button onClick={this.props.onClick}>Load that S**t Up</Button>
         </ButtonContainer>
       </div>
     )
