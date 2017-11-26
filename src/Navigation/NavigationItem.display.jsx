@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { FONT_SIZE, EGG_WHITE } from '../constants';
@@ -9,7 +10,7 @@ const NavItem = styled.li`
   margin: 0.75em 0;
   background: ${props => props.background};
 `
-const Link = styled.a`
+const LinkText = styled.p`
   color: ${EGG_WHITE};
   text-decoration: none;
 `
@@ -17,9 +18,8 @@ const Link = styled.a`
 export const NavigationItem = (props) => {
   return (
     <NavItem className="nav-item">
-      <Link
-        href={props.link}>
-        {props.item}
+      <Link to={props.link} style={{textDecoration: 'none'}}>
+        <LinkText>{props.item}</LinkText>
       </Link>
     </NavItem>
   )

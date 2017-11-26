@@ -6,7 +6,13 @@ import ImageContainer from '../PhotoDisplay/ImageContainer.container';
 import CurrentPhoto from '../PhotoDisplay/CurrentPhoto.container';
 import photoData from '../PhotoDisplay/PhotoData.container';
 import Uploader from './Uploader.display';
+
+import MergeSortTransformer from '../Transformers/MergeSortTransformer.container';
+import QuickSortTransformer from '../Transformers/QuickSortTransformer.container';
+import BubbleSortTransformer from '../Transformers/BubbleSortTransformer.container';
 import SelectionSortTransformer from '../Transformers/SelectionSortTransformer.container';
+
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
 import { LIGHT_BLUE } from '../constants';
 /* To-dos
@@ -27,7 +33,6 @@ const MainContainer = styled.div`
   "navigation content"
   "photo content"
   "photo footer";
-  background: ${LIGHT_BLUE};
   @media (max-width: 750px) {
     grid-template-columns: 30% 70%;
   }
@@ -54,16 +59,23 @@ export default class PhotoTransformerApp extends React.Component {
     //   </MainContainer>
     // );
     return (
-      <MainContainer>
-        <NavigationContainer />
-        <ImageContainer>
-          <CurrentPhotoData>
-            <CurrentPhoto />
-          </CurrentPhotoData>
-          <Uploader/>
-          <SelectionSortTransformer/>
-        </ImageContainer>
-      </MainContainer>
+      <BrowserRouter>
+        <MainContainer>
+          <NavigationContainer />
+          <ImageContainer>
+            <CurrentPhotoData>
+              <CurrentPhoto />
+            </CurrentPhotoData>
+            <Uploader/>
+            <Switch>
+              <Route exact path="/selectionSort/" component={SelectionSortTransformer}/>
+              <Route exact path="/quickSort/" component={QuickSortTransformer}/>
+              <Route exact path="/mergeSort/" component={MergeSortTransformer}/>
+              <Route exact path="/bubbleSort/" component={BubbleSortTransformer} />
+            </Switch>
+          </ImageContainer>
+        </MainContainer>
+      </BrowserRouter>
     )
   }
 }

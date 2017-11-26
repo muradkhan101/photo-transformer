@@ -2,14 +2,14 @@ import React from 'react';
 import Canvas from './Canvas.display.jsx';
 import styled from 'styled-components';
 import { object, func } from 'prop-types';
-import { EGG_WHITE } from '../constants'
+import { LIGHT_BLUE } from '../constants'
 
 const Current = styled.div`
   grid-area: photo;
   padding: 8px;
   margin: 0 auto;
   text-align: center;
-  background: ${EGG_WHITE};
+  background: ${LIGHT_BLUE};
   width: 100%;
 `
 

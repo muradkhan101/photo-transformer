@@ -13,8 +13,10 @@ const NavigationBar = styled.div`
 const TEMP = {
   title: 'Photo Effects',
   navList : [
-    {link: 'https://google.com', item: 'The Googles'},
-    {link: 'https://reddit.com', item: 'Time Sucker'}
+    {link: '/bubbleSort', item: 'Bubble Sort'},
+    {link: '/quickSort', item: 'Quick Sort'},
+    {link: '/mergeSort', item: 'Merge Sort'},
+    {link: '/selectionSort', item: 'Selection Sort'},
   ]
 }
 
