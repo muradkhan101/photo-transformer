@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { NavigationList } from './NavigationList.display';
-import { EGG_WHITE, FONT_SIZE, M_BOT } from '../constants';
+import NavigationList from './NavigationList.display';
+import { EGG_WHITE, FONT_SIZE, M_BOT, mediaQuery } from '../constants';
 
 const Nav = styled.nav`
   color: ${EGG_WHITE};
@@ -10,10 +10,7 @@ const Nav = styled.nav`
   top: 50px;
   position: sticky;
   overflow: scroll;
-  @media (max-width: 750px) {
-    margin-right: 5%;
-  }
-  @media (max-width: 594px) {
+  @media ( ${mediaQuery('md')} ) {
     display: none;
   }
 `
@@ -25,9 +22,6 @@ const Title = styled.h2`
 `
 
 export default class Navigation extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <Nav id="navigation">

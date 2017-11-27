@@ -28,7 +28,7 @@ export default class CurrentPhoto extends React.Component {
   render() {
     let { photoData } = this.context;
     return (
-      <Current>
+      <Current id="currentPhoto">
         <h3> Current Photo </h3>
         <Canvas
           renderCanvas={(canvas) => {

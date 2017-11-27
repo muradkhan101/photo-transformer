@@ -51,15 +51,16 @@ const photoData = (mediaQuery, current) => {
               h = Math.round( this.height / this.width * w );
             }
           } else {
+            let nav = document.getElementById('nav-container');
             if (this.height > this.width ) {
               h = current
                   ? Math.min( ( window.innerHeight - (45 + 60) - 8) / 3 , this.height )
-                  : Math.min( 500, this.height );
+                  : Math.min( window.innerHeight / 2, this.height );
               w = Math.round( this.width / this.height * h );
             } else {
               w = current
-                  ? Math.min( ( window.innerWidth - 16) * 0.25, this.width )
-                  : Math.min( window.innerWidth * 0.6, this.width );
+                  ? Math.min( nav ? nav.clientWidth - 16 : ( window.innerWidth - 16) * 0.25, this.width )
+                  : Math.min( window.innerWidth * 0.4, this.width );
               h = Math.round( this.height / this.width * w );
             }
           }

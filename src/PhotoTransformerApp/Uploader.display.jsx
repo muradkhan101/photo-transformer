@@ -1,13 +1,12 @@
 import React from 'react';
 import { func } from 'prop-types';
 import styled from 'styled-components';
-import { ORANGE, CHARCOAL, FONT_SIZE } from '../constants'
+import { ORANGE, CHARCOAL, FONT_SIZE, mediaQuery } from '../constants'
 // Make custom CSS for this shite
 const Wrapper = styled.div`
   position: relative;
-  min-width: 400px;
-  max-width: 80%;
-
+  max-width: 100%;
+  margin-top: 1em;
 `
 
 const FileInput = styled.input`
@@ -25,6 +24,8 @@ const FileLabel = styled.label`
   max-width: 100%;
   margin-bottom: 0;
   cursor: pointer;
+  min-width: 475px;
+  @media ( ${mediaQuery('sm')} ) { min-width: 300px; }
 `
 
 const Upload = styled.span`
@@ -41,12 +42,15 @@ const Upload = styled.span`
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
   font-size: ${FONT_SIZE.medium};
+  text-align: left;
   &::after, &::before {
     -webkit-box-sizing: inherit;
     box-sizing: inherit;
   }
   &::after {
     content: "Choose a photo...";
+    position: relative;
+    top: 2px;
   }
   &::before {
     content: "Browse";

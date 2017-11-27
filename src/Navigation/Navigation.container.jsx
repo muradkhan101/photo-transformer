@@ -13,6 +13,7 @@ const NavigationBar = styled.div`
 const TEMP = {
   title: 'Photo Effects',
   navList : [
+    {link: 'circles', item: 'Circles'},
     {link: '/bubbleSort', item: 'Bubble Sort'},
     {link: '/quickSort', item: 'Quick Sort'},
     {link: '/mergeSort', item: 'Merge Sort'},
@@ -21,15 +22,12 @@ const TEMP = {
 }
 
 export default class NavigationContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <NavigationBar id="nav-container">
         <Navigation title={TEMP.title} navList={TEMP.navList}></Navigation>
-        <MobileNavigation></MobileNavigation>
+        <MobileNavigation title={TEMP.title} navList={TEMP.navList}></MobileNavigation>
       </NavigationBar>
     )
   }

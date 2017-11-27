@@ -4,6 +4,7 @@ export const EGG_WHITE = '#efefef';
 export const CHARCOAL = '#313131';
 export const ORANGE = '#ffa035';
 export const LIGHT_BLUE = '#8ad0f3';
+
 // Typography
 export const FONT_SIZE = {
   small: '0.8em',
@@ -24,3 +25,16 @@ export const M_LEFT = 'margin-left: 16px';
 export const M_RIGHT = 'margin-right: 16px';
 
 export const ALL_PADDING = 'padding: 8px 12px';
+
+// Random
+
+export const BEZIER = 'cubic-bezier(0.5475, 0.0085, 0.7678, 0.9508)';
+
+export const mediaQuery = (size) => {
+  const SIZES = {
+    sm: 'max-width: 593px',
+    md: 'max-width: 750px',
+    lg: 'max-width: 1200px',
+  }
+  return SIZES[size];
+}
