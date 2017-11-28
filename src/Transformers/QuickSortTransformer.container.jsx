@@ -84,7 +84,7 @@ class QuickSortTransformer extends React.Component {
     let children =  React.Children.map(
       this.props.children,
       (child) => {
-        if (child.displayName === 'Canvas') {
+        if (child.type.displayName === 'Canvas') {
           return React.cloneElement(child, {
             name: this.state.name,
             renderCanvas: (canvas) => {
@@ -94,7 +94,7 @@ class QuickSortTransformer extends React.Component {
               }
             },
           });
-        } else if (child.displayName === 'LoadButton') {
+        } else if (child.type.displayName === 'LoadButton') {
           return React.cloneElement(child, {
             name: this.state.name,
             onClick: () => {

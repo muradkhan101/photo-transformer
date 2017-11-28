@@ -13,6 +13,6 @@ export default class Canvas extends React.Component {
   }
 
   render() {
-    return <canvas ref={`${this.displayName}`} id={`${this.displayName}Canvas`}/>
+    return <canvas ref={`${this.props.name}`} id={`${this.props.name}Canvas`}/>
   }
 }
