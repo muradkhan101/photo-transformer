@@ -21,7 +21,7 @@ class MergeSortTransformer extends React.Component {
       this.mergeSort(this.state.imgData.data, canvas);
     }
   }
-  
+
   mergeSortHelper(s = 0, e = this.state.imgData.data.length - this.state.pixelDistance, stack = []) {
     if ( s < e ) {
       let mid = floorToFour((e + s) / 2);
@@ -90,7 +90,7 @@ class MergeSortTransformer extends React.Component {
     let children =  React.Children.map(
       this.props.children,
       (child) => {
-        if (child.type.name === 'Canvas') {
+        if (child.displayName === 'Canvas') {
           return React.cloneElement(child, {
             name: this.state.name,
             renderCanvas: (canvas) => {
@@ -100,7 +100,7 @@ class MergeSortTransformer extends React.Component {
               }
             },
           });
-        } else if (child.type.name === 'LoadButton') {
+        } else if (child.displayName === 'LoadButton') {
           return React.cloneElement(child, {
             name: this.state.name,
             onClick: () => {

@@ -57,7 +57,7 @@ export default class LoadButton extends React.Component {
     imageURL: string,
     photoData: object,
   }
-
+  static displayName = 'LoadButton';
   render() {
     return (
       <ButtonWrapper>
