@@ -23,7 +23,6 @@ class InsertionSortTransformer extends React.Component {
   }
 
   insertionSort(comparison, canvas) {
-    let startIndex = this.state.sortIndex;
     let sortIndex = this.state.sortIndex;
     let currentIndex;
 

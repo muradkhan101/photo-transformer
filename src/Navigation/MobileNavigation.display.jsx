@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import NavigationList from './NavigationList.display'
 import BurgerMenu from './BurgerMenu.display';
-import { mediaQuery, BEZIER, EGG_WHITE, SKY_BLUE, HEADING_FONTS, FONT_SIZE, CHARCOAL } from '../constants';
+import { mediaQuery, BEZIER, EGG_WHITE, SKY_BLUE, HEADING_FONTS, FONT_SIZE, CHARCOAL, TITLE } from '../constants';
 
 const MobileTitle = styled.div`
   color: ${EGG_WHITE};
@@ -88,7 +88,7 @@ export default class MobileNavigation extends React.Component {
       <MobileNav id="mobile-navigation" ref="mobileNav" className={this.state.open ? 'is-open' : ''}>
         <BurgerMenu onClick={() => this.clickBurger() }/>
         <NavigationList navList={this.props.navList}/>
-        <MobileTitle className="site-name"> Transform this ya bish! </MobileTitle>
+        <MobileTitle className="site-name"> {TITLE} </MobileTitle>
       </MobileNav>
     );
   }

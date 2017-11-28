@@ -38,3 +38,5 @@ export const mediaQuery = (size) => {
   }
   return SIZES[size];
 }
+
+export const TITLE = 'Transformify!';

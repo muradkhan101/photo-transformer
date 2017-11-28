@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
 
-import { LIGHT_BLUE, FONT_SIZE, HEADING_FONTS, mediaQuery } from '../constants';
+import { FONT_SIZE, HEADING_FONTS, mediaQuery, TITLE } from '../constants';
 import * as wrapper from '../Content/InfoWrappers';
 import Uploader from './Uploader.display';
 
@@ -25,14 +25,14 @@ const Title = styled.h1`
   text-align: center;
   font-size: ${FONT_SIZE.x_large};
   font-family: ${HEADING_FONTS};
-  @media ( ${mediaQuery('sm')} ) {display: none;}
+  @media ( ${mediaQuery('md')} ) {display: none;}
 `
 
 const Content = (props_) => {
   return (
     <ContentArea id="content">
       <Heading>
-        <Title> Transform This! </Title>
+        <Title> {TITLE} </Title>
         <Uploader/>
       </Heading>
       <Switch>

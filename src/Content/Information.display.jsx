@@ -12,6 +12,7 @@ const Info = styled.div`
   margin-right: 25px;
   max-width: 325px;
   @media ( ${mediaQuery('md')} ) { margin-right: 0;}
+  @media ( max-width: 1000px ) { margin-top: 20px; }
 `
 
 const Title = styled.h3`

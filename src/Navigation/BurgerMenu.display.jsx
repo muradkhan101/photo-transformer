@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BEZIER, EGG_WHITE, SKY_BLUE } from '../constants';
+import { BEZIER, EGG_WHITE } from '../constants';
 
 const BurgerHolder = styled.div`
   margin-left: 1em;

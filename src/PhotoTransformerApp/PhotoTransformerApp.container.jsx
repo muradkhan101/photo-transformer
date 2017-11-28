@@ -15,7 +15,7 @@ const MainContainer = styled.div`
   min-height: 100vh;
   display: grid;
   grid-template-columns: 25% 75%;
-  grid-template-rows: 45px 0.75fr auto 60px;
+  grid-template-rows: 45px 0.75fr 0.25fr 60px;
   grid-template-areas:
   "navigation header"
   "navigation content"
@@ -34,7 +34,6 @@ export default class PhotoTransformerApp extends React.Component {
       () => window.innerWidth < 825,
       true
     )
-    // Instead of transformer, have info component that contains transformer
     return (
       <BrowserRouter>
         <MainContainer>

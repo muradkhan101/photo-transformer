@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { FONT_SIZE, EGG_WHITE, mediaQuery, CHARCOAL } from '../constants';
+import { FONT_SIZE, EGG_WHITE, mediaQuery, CHARCOAL, BODY_FONTS } from '../constants';
 
 const NavItem = styled.li`
   display: inline-block;
@@ -20,6 +20,7 @@ const NavItem = styled.li`
 const LinkText = styled.p`
   color: ${EGG_WHITE};
   text-decoration: none;
+  font-family: ${BODY_FONTS};
 `
 
 const linkStyles = {
