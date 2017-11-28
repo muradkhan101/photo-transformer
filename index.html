@@ -93,7 +93,7 @@
        http.open('GET', url);
        http.send();
    }
-   resources.map(`build/${preFetchResource}`);
+   resources.map((e) => `build/${e}`).map(preFetchResource);
 </script>
 <script>
   let button = document.getElementById('enter');
