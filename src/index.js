@@ -4,4 +4,5 @@ import './index.css';
 import PhotoTransformerApp from './PhotoTransformerApp/PhotoTransformerApp.container';
 import registerServiceWorker from './registerServiceWorker';
 
+registerServiceWorker();
 ReactDOM.render(<PhotoTransformerApp />, document.getElementById('root'));

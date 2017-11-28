@@ -5,7 +5,7 @@
   <title>Transformify</title>
   <meta name="description" content="Transform photos using interesting methods.">
   <meta name="subject" content="Photo Transforming App">
-  <link rel="icon" type="image/x-icon" sizes="16x16" href="./public/favicon.ico">
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="./build/favicon.ico">
 </head>
 
 <body>
@@ -26,7 +26,7 @@
     padding: 0;
   }
   #container {
-    background-image: url('public/background.svg');
+    background-image: url('build/background.svg');
     background-size: 125px;
     background-repeat: repeat;
   }
@@ -86,9 +86,19 @@
   }
 </style>
 <script>
+  let resources = ['service-worker.js', 'static/js/main.75ff507e.js', 'static/js/main.75ff507e.js.map', 'css/main.169b8d88.css', 'css/main.169b8d88.css.map'];
+
+   function preFetchResource(url) {
+       let http = new XMLHttpRequest();
+       http.open('GET', url);
+       http.send();
+   }
+   resources.map(`build/${preFetchResource}`);
+</script>
+<script>
   let button = document.getElementById('enter');
   button.addEventListener('click', function() {
-    window.location.href=window.location.href+'/public';
+    window.location.href=window.location.href+'/build';
   })
   let loops = 0;
   let clipPath = document.getElementById('clipPath');
@@ -131,4 +141,5 @@
     }
   }, 1000/60);
 </script>
+
 </body>
