@@ -5,7 +5,7 @@
   <title>Transformify</title>
   <meta name="description" content="Transform photos using interesting methods.">
   <meta name="subject" content="Photo Transforming App">
-  <link rel="icon" type="image/x-icon" sizes="16x16" href="./favicon.ico">
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="./public/favicon.ico">
 </head>
 
 <body>
@@ -26,7 +26,7 @@
     padding: 0;
   }
   #container {
-    background-image: url('background.svg');
+    background-image: url('public/background.svg');
     background-size: 125px;
     background-repeat: repeat;
   }
@@ -68,7 +68,7 @@
     opacity: 0;
     transition: opacity 1s ease-in-out;
     overflow: hidden;
-    display: inline-block;
+    display: none;
     position: relative;
     background: linear-gradient(90deg, #ffa035, #56a4db);
     border: none;
@@ -86,8 +86,9 @@
   }
 </style>
 <script>
-  document.getElementById('enter').addEventListener('click', function() {
-    window.location.href=window.location.href+'/transform';
+  let button = document.getElementById('enter');
+  button.addEventListener('click', function() {
+    window.location.href=window.location.href+'/public';
   })
   let loops = 0;
   let clipPath = document.getElementById('clipPath');
@@ -125,7 +126,8 @@
     growCircles('.circles');
     if ( loops > 425 ) {
       window.clearInterval(interval);
-      document.getElementById('enter').classList.add('appear');
+      button.style.display = 'inline-block';
+      button.classList.add('appear');
     }
   }, 1000/60);
 </script>

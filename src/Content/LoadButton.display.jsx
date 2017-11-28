@@ -44,10 +44,6 @@ const Button = styled.button`
   padding: 0.4em 0.9em;
   color: ${EGG_WHITE};
   font-family: ${HEADING_FONTS};
-  &:focus {
-    margin-top: 2px;
-    outline: none;
-  }
   @keyframes button {
     0% {transform-origin: left; transform: scaleX(0);}
     50% {transform: scaleX(1); transform-origin: left;}
