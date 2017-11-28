@@ -40,7 +40,7 @@ const MobileNav = styled.nav`
     background-color: ${EGG_WHITE};
     transition: background-color 0.15s linear;
     .nav-menu {
-      max-height: 170px;
+      max-height: 220px;
     }
     .site-name, .nav-text {
       color: ${SKY_BLUE};

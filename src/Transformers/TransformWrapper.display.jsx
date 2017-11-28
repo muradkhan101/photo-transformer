@@ -2,14 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import photoData from '../PhotoDisplay/PhotoData.container';
 import Canvas from '../PhotoDisplay/Canvas.display';
-import LoadButton from './LoadButton.display';
+import LoadButton from '../Content/LoadButton.display';
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  width: 100%;
-  margin-top: 2em;
 `
 
 const transformWrapper = (Transformer) => {
@@ -20,7 +18,7 @@ const transformWrapper = (Transformer) => {
    * The render instructions are passed to Canvas in the Transformer
   */
   let TransformedData = photoData(
-    () => window.innerWidth < 594,
+    () => window.innerWidth < 825,
     false
   )
   return class TransformWrapper extends React.Component {

@@ -60,7 +60,7 @@ const photoData = (mediaQuery, current) => {
             } else {
               w = current
                   ? Math.min( nav ? nav.clientWidth - 16 : ( window.innerWidth - 16) * 0.25, this.width )
-                  : Math.min( window.innerWidth * 0.4, this.width );
+                  : Math.min( Math.floor(document.getElementById('content').clientWidth * 0.4), this.width );
               h = Math.round( this.height / this.width * w );
             }
           }

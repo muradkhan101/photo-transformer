@@ -33,7 +33,7 @@ export const BEZIER = 'cubic-bezier(0.5475, 0.0085, 0.7678, 0.9508)';
 export const mediaQuery = (size) => {
   const SIZES = {
     sm: 'max-width: 593px',
-    md: 'max-width: 750px',
+    md: 'max-width: 825px',
     lg: 'max-width: 1200px',
   }
   return SIZES[size];

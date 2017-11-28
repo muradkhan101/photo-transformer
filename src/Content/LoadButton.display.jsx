@@ -5,6 +5,10 @@ import { ORANGE, SKY_BLUE, EGG_WHITE, HEADING_FONTS } from '../constants';
 
 // Need to pass a way to start drawing on button click (call draw)
 
+const ButtonWrapper = styled.div`
+  margin-top: 12px;
+`
+
 const ButtonContainer = styled.div`
   display: inline-block;
   overflow: hidden;
@@ -60,11 +64,11 @@ export default class LoadButton extends React.Component {
 
   render() {
     return (
-      <div>
+      <ButtonWrapper>
         <ButtonContainer>
           <Button onClick={this.props.onClick}>Load that S**t Up</Button>
         </ButtonContainer>
-      </div>
+      </ButtonWrapper>
     )
   }
 }

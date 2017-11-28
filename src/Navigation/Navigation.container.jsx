@@ -18,6 +18,7 @@ const TEMP = {
     {link: '/quickSort', item: 'Quick Sort'},
     {link: '/mergeSort', item: 'Merge Sort'},
     {link: '/selectionSort', item: 'Selection Sort'},
+    {link: '/insertionSort', item: 'Insertion Sort'},
   ]
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Canvas from './Canvas.display.jsx';
 import styled from 'styled-components';
 import { object, func } from 'prop-types';
-import { LIGHT_BLUE } from '../constants'
+import { LIGHT_BLUE, FONT_SIZE } from '../constants'
 
 const Current = styled.div`
   grid-area: photo;
