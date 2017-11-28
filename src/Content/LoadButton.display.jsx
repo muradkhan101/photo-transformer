@@ -62,7 +62,7 @@ export default class LoadButton extends React.Component {
     return (
       <ButtonWrapper>
         <ButtonContainer>
-          <Button onClick={this.props.onClick}>Load that S**t Up</Button>
+          <Button onClick={this.props.onClick}>Begin Morph</Button>
         </ButtonContainer>
       </ButtonWrapper>
     )

@@ -2,7 +2,7 @@ import React from 'react';
 import Canvas from './Canvas.display.jsx';
 import styled from 'styled-components';
 import { object, func } from 'prop-types';
-import { LIGHT_BLUE, FONT_SIZE, HEADING_FONTS } from '../constants'
+import { LIGHT_BLUE, FONT_SIZE, HEADING_FONTS, EGG_WHITE } from '../constants'
 
 const Current = styled.div`
   grid-area: photo;
@@ -12,7 +12,8 @@ const Current = styled.div`
   background: ${LIGHT_BLUE};
   width: 100%;
   font-size: ${FONT_SIZE.medium};
-  font-family: ${HEADING_FONTS}
+  font-family: ${HEADING_FONTS};
+  color: ${EGG_WHITE};
 `
 
 export default class CurrentPhoto extends React.Component {
